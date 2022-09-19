@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Original URL {% endblock %}</h1>
+    <form action = "{{ url_for('original_url') }}" method = "post">
+       <label for = "short_url">Short URL</label>
+       <input type = "text" name = "short_url" placeholder = "https://www.urlshort.ly/abfy4se" size="50px"/>
+       <input type = "submit" value = "Submit" />
+    </form>
+    {% if message %}
+      <p>{{ message }} </p>
+    {% elif result %}
+    <table>
+       <thead>
+          <tr>
+             <th>URL</th>
+             <th />
+             <th>Short URL</th>
+          </tr>
+       </thead>
+
+       <tbody>
+         <tr>
+           <td>{{ result.url }}</td>
+           <td />
+           <td>https://www.urlshort.ly/{{ result.short_url }}</td>
+         </tr>
+       </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

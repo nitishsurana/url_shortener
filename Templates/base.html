@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Shorten URL</title>
+    <style>
+        nav a {
+            color: #d64161;
+            font-size: 1em;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+  <h3>URL Shortner</h3>
+  <nav>
+      <a href="{{ url_for('shorten_url') }}">Shorten URL</a>
+      <a href="{{ url_for('original_url') }}">Original URL</a>
+      <a href="{{ url_for('show_all') }}">Show All Shortened URLs</a>
+  </nav>
+  <hr/>
+  <div class="content">
+      {% block content %} {% endblock %}
+  </div>
+</body>
+</html>

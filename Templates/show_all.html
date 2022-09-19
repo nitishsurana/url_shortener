@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} All Shortened URL {% endblock %}</h1>
+    {% if message %}
+      <p>{{ message }} </p>
+    {% elif urls %}
+      <table>
+         <thead>
+            <tr>
+               <th>URL</th>
+               <th />
+               <th>Short URL</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for url in urls %}
+               <tr>
+                  <td>{{ url.url }}</td>
+                  <td />
+                  <td>https://www.urlshort.ly/{{ url.short_url }}</td>
+                </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+    {% endif %}
+{% endblock %}

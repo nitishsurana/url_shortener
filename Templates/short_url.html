@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Shorten URL {% endblock %}</h1>
+    <form action = "{{ url_for('shorten_url') }}" method = "post">
+       <label for = "url">URL</label>
+       <input type = "text" name = "url" placeholder = "https://www.url.com/" size="50px"/>
+       <input type = "submit" value = "Submit" />
+    </form>
+    {% if message %}
+      <p>{{ message }} </p>
+    {% elif short_url %}
+    <table>
+       <thead>
+          <tr>
+             <th>URL</th>
+             <th />
+             <th>Short URL</th>
+          </tr>
+       </thead>
+
+       <tbody>
+         <tr>
+           <td>{{ short_url.url }}</td>
+           <td />
+           <td>https://www.urlshort.ly/{{ short_url.short_url }}</td>
+         </tr>
+       </tbody>
+    </table>
+    {% endif %}
+{% endblock %}
